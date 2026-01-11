@@ -25,7 +25,7 @@ const TICKET_SOURCES = [
   { 
     name: 'Gametime', 
     note: 'Lowest fees',
-    url: 'https://gametime.co/college-football-playoff-national-championship-tickets/events/cfpchampionship-jan-19-2026-id-5u2xkqkcd6ue6'
+    url: 'https://gametime.co/college-football-bowl/2026-college-football-playoff-national-championship-indiana-vs-miami-tickets/1-19-2026-miami-gardens-fl-hard-rock-stadium/events/67925254e75abf845a96b632'
   },
 ];
 
