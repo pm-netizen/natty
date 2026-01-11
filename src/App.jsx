@@ -20,7 +20,7 @@ const TICKET_SOURCES = [
   { 
     name: 'Ticketmaster', 
     note: 'Official partner',
-    url: 'https://www.ticketmaster.com/collegefootballplayoff'
+    url: 'https://www.ticketmaster.com/college-football-playoff-national-championship-miami-florida-01-19-2026/event/0D0062FCE0F924B2'
   },
   { 
     name: 'Gametime', 
