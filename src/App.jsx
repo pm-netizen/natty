@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Calendar, MapPin, Clock, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, Clock, ArrowUpRight } from 'lucide-react';
 
 const TICKET_SOURCES = [
   { 
@@ -33,85 +33,54 @@ export default function App() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background texture - IU Crimson tint */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(153, 0, 0, 0.12) 0%, transparent 60%),
-                           radial-gradient(ellipse at 80% 100%, rgba(153, 0, 0, 0.06) 0%, transparent 40%)`,
-        }}
-      />
-      
-      {/* Subtle grid pattern */}
-      <div 
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      <div className="relative z-10 max-w-xl mx-auto px-6 py-12 md:py-20">
+    <div className="min-h-screen bg-stone-50 text-stone-900">
+      <div className="max-w-lg mx-auto px-6 py-16 md:py-24">
         
         {/* Never Daunted Logo */}
-        <div className="flex justify-center mb-10">
-          <div className="relative">
-            <div className="absolute inset-0 blur-3xl bg-red-900/15 rounded-full scale-150" />
-            <img 
-              src="/never-daunted.png" 
-              alt="Never Daunted" 
-              className="w-64 md:w-80 relative opacity-90"
-            />
-          </div>
+        <div className="flex justify-center mb-12">
+          <img 
+            src="/never-daunted.png" 
+            alt="Never Daunted" 
+            className="w-56 md:w-64"
+            style={{
+              animation: 'fadeIn 0.6s ease-out',
+            }}
+          />
         </div>
 
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 
-            className="text-3xl md:text-4xl font-light tracking-tight mb-4"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-          >
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-stone-800 mb-4">
             National Championship
           </h1>
           
-          <div 
-            className="flex items-center justify-center gap-4 mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-          >
-            <span className="text-xl md:text-2xl font-light tracking-wide">Indiana</span>
-            <span className="text-red-800/60 text-sm font-sans">vs</span>
-            <span className="text-xl md:text-2xl font-light tracking-wide">Miami</span>
+          <div className="flex items-center justify-center gap-3 text-lg text-stone-600 mb-6">
+            <span className="font-medium">Indiana</span>
+            <span className="text-stone-400">vs</span>
+            <span className="font-medium">Miami</span>
           </div>
 
-          <div 
-            className="inline-flex items-center gap-6 text-neutral-500 text-sm"
-          >
-            <span className="flex items-center gap-2">
-              <Calendar className="w-3.5 h-3.5" strokeWidth={1.5} />
+          <div className="inline-flex items-center gap-5 text-stone-500 text-sm">
+            <span className="flex items-center gap-1.5">
+              <Calendar className="w-4 h-4" strokeWidth={1.5} />
               Jan 19
             </span>
-            <span className="flex items-center gap-2">
-              <Clock className="w-3.5 h-3.5" strokeWidth={1.5} />
+            <span className="flex items-center gap-1.5">
+              <Clock className="w-4 h-4" strokeWidth={1.5} />
               7:30 PM
             </span>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5" strokeWidth={1.5} />
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-4 h-4" strokeWidth={1.5} />
               Miami
             </span>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 mb-10">
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
-          <span className="text-neutral-600 text-xs tracking-[0.3em] uppercase">Tickets</span>
-          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-neutral-800 to-transparent" />
-        </div>
+        <div className="h-px bg-stone-200 mb-8" />
 
         {/* Links */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           {TICKET_SOURCES.map((source, index) => (
             <a
               key={source.name}
@@ -120,52 +89,37 @@ export default function App() {
               rel="noopener noreferrer"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="group block relative"
+              className="group block"
               style={{
-                animation: `fadeSlideIn 0.5s ease-out ${index * 0.08}s both`,
+                animation: `slideUp 0.4s ease-out ${index * 0.05}s both`,
               }}
             >
               <div 
                 className={`
-                  relative flex items-center justify-between p-5
-                  border border-neutral-900 rounded-lg
-                  transition-all duration-300 ease-out
+                  flex items-center justify-between py-4 px-5 rounded-xl
+                  transition-all duration-200 ease-out
                   ${hoveredIndex === index 
-                    ? 'bg-neutral-900/80 border-neutral-700' 
-                    : 'bg-neutral-950/50 hover:bg-neutral-900/50'
+                    ? 'bg-stone-100' 
+                    : 'hover:bg-stone-100/60'
                   }
                 `}
               >
-                {/* Hover glow */}
-                <div 
-                  className={`
-                    absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100
-                    transition-opacity duration-500
-                  `}
-                  style={{
-                    background: 'radial-gradient(ellipse at 0% 50%, rgba(153, 0, 0, 0.04) 0%, transparent 70%)',
-                  }}
-                />
-                
-                <div className="relative flex items-center gap-4">
-                  <span 
-                    className="text-lg font-light tracking-wide"
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                  >
+                <div className="flex items-baseline gap-3">
+                  <span className="text-base font-medium text-stone-800">
                     {source.name}
                   </span>
-                  <span className="text-neutral-600 text-xs tracking-wide">
+                  <span className="text-xs text-stone-400">
                     {source.note}
                   </span>
                 </div>
                 
-                <ChevronRight 
+                <ArrowUpRight 
                   className={`
-                    w-4 h-4 text-neutral-600 
-                    transition-all duration-300
-                    ${hoveredIndex === index ? 'translate-x-1 text-red-700/70' : ''}
+                    w-4 h-4 text-stone-400
+                    transition-all duration-200
+                    ${hoveredIndex === index ? 'translate-x-0.5 -translate-y-0.5 text-red-700' : ''}
                   `}
-                  strokeWidth={1.5}
+                  strokeWidth={2}
                 />
               </div>
             </a>
@@ -173,34 +127,28 @@ export default function App() {
         </div>
 
         {/* Tips */}
-        <div className="mt-12 pt-8 border-t border-neutral-900">
-          <p className="text-neutral-600 text-xs tracking-wide leading-relaxed text-center">
-            Prices fluctuate significantly between platforms. 
-            <span className="text-neutral-500"> Gametime</span> typically has the lowest fees.
-            <span className="text-neutral-500"> Prices often drop 24-48 hours before kickoff.</span>
+        <div className="mt-10 pt-8 border-t border-stone-200">
+          <p className="text-stone-400 text-xs leading-relaxed text-center">
+            Gametime typically has the lowest fees. Prices often drop 24-48 hours before kickoff.
           </p>
         </div>
 
         {/* Footer */}
-        <div className="mt-16 text-center">
-          <p 
-            className="text-neutral-800 text-xs tracking-[0.2em]"
-          >
-            HARD ROCK STADIUM · MIAMI GARDENS
+        <div className="mt-12 text-center">
+          <p className="text-stone-300 text-xs tracking-wide uppercase">
+            Hard Rock Stadium · Miami Gardens
           </p>
         </div>
       </div>
 
       <style>{`
-        @keyframes fadeSlideIn {
-          from {
-            opacity: 0;
-            transform: translateY(12px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </div>
