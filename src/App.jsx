@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExternalLink, Calendar, MapPin, Clock, Trophy, ChevronRight } from 'lucide-react';
+import { ExternalLink, Calendar, MapPin, Clock, ChevronRight } from 'lucide-react';
 
 const TICKET_SOURCES = [
   { 
@@ -29,17 +29,28 @@ const TICKET_SOURCES = [
   },
 ];
 
+// IU Trident Logo Component
+const IULogo = ({ className }) => (
+  <svg 
+    viewBox="0 0 270 341" 
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M0 0h75v341H0zM195 0h75v341h-75zM75 246h120v95H75zM97.5 0h75v270h-75z"/>
+  </svg>
+);
+
 export default function App() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Background texture */}
+      {/* Background texture - IU Crimson tint */}
       <div 
         className="absolute inset-0 opacity-30"
         style={{
-          backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(180, 140, 80, 0.15) 0%, transparent 60%),
-                           radial-gradient(ellipse at 80% 100%, rgba(180, 140, 80, 0.08) 0%, transparent 40%)`,
+          backgroundImage: `radial-gradient(ellipse at 50% 0%, rgba(153, 0, 0, 0.12) 0%, transparent 60%),
+                           radial-gradient(ellipse at 80% 100%, rgba(153, 0, 0, 0.06) 0%, transparent 40%)`,
         }}
       />
       
@@ -55,18 +66,18 @@ export default function App() {
 
       <div className="relative z-10 max-w-xl mx-auto px-6 py-12 md:py-20">
         
-        {/* Trophy Icon */}
+        {/* IU Logo */}
         <div className="flex justify-center mb-8">
           <div className="relative">
-            <div className="absolute inset-0 blur-2xl bg-amber-500/20 rounded-full scale-150" />
-            <Trophy className="w-12 h-12 text-amber-400/80 relative" strokeWidth={1} />
+            <div className="absolute inset-0 blur-3xl bg-red-900/20 rounded-full scale-150" />
+            <IULogo className="w-16 h-20 text-red-800/70 relative" />
           </div>
         </div>
 
         {/* Header */}
         <div className="text-center mb-12">
           <p 
-            className="text-amber-500/80 text-xs tracking-[0.4em] uppercase mb-4"
+            className="text-red-700/80 text-xs tracking-[0.4em] uppercase mb-4"
           >
             College Football Playoff
           </p>
@@ -83,7 +94,7 @@ export default function App() {
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             <span className="text-xl md:text-2xl font-light tracking-wide">Indiana</span>
-            <span className="text-amber-500/60 text-sm font-sans">vs</span>
+            <span className="text-red-800/60 text-sm font-sans">vs</span>
             <span className="text-xl md:text-2xl font-light tracking-wide">Miami</span>
           </div>
 
@@ -145,7 +156,7 @@ export default function App() {
                     transition-opacity duration-500
                   `}
                   style={{
-                    background: 'radial-gradient(ellipse at 0% 50%, rgba(180, 140, 80, 0.03) 0%, transparent 70%)',
+                    background: 'radial-gradient(ellipse at 0% 50%, rgba(153, 0, 0, 0.04) 0%, transparent 70%)',
                   }}
                 />
                 
@@ -165,7 +176,7 @@ export default function App() {
                   className={`
                     w-4 h-4 text-neutral-600 
                     transition-all duration-300
-                    ${hoveredIndex === index ? 'translate-x-1 text-amber-500/60' : ''}
+                    ${hoveredIndex === index ? 'translate-x-1 text-red-700/70' : ''}
                   `}
                   strokeWidth={1.5}
                 />
