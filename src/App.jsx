@@ -10,7 +10,7 @@ const TICKET_SOURCES = [
   { 
     name: 'StubHub', 
     note: 'Largest inventory',
-    url: 'https://www.stubhub.com/college-football-playoff-national-championship-miami-gardens-tickets-1-19-2026/event/154425172/'
+    url: 'https://www.stubhub.com/college-football-playoff-national-championship-miami-tickets-1-19-2026/event/156990774/'
   },
   { 
     name: 'Vivid Seats', 
