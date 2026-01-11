@@ -34,27 +34,38 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-stone-50 text-stone-900">
-      <div className="max-w-lg mx-auto px-6 py-16 md:py-24">
+      
+      {/* Hero with crew photo */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        <img 
+          src="/crew.jpg" 
+          alt="The Crew - Peach Bowl 2026" 
+          className="w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-stone-50" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-stone-50 to-transparent" />
+      </div>
+
+      <div className="max-w-lg mx-auto px-6 -mt-8 relative z-10">
         
         {/* Never Daunted Logo */}
-        <div className="flex justify-center mb-12">
-          <img 
-            src="/never-daunted.png" 
-            alt="Never Daunted" 
-            className="w-56 md:w-64"
-            style={{
-              animation: 'fadeIn 0.6s ease-out',
-            }}
-          />
+        <div className="flex justify-center mb-8">
+          <div className="bg-stone-50 rounded-2xl p-4 shadow-sm">
+            <img 
+              src="/never-daunted.png" 
+              alt="Never Daunted" 
+              className="w-48 md:w-56"
+            />
+          </div>
         </div>
 
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-stone-800 mb-4">
+          <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-stone-800 mb-3">
             National Championship
           </h1>
           
-          <div className="flex items-center justify-center gap-3 text-lg text-stone-600 mb-6">
+          <div className="flex items-center justify-center gap-3 text-lg text-stone-600 mb-5">
             <span className="font-medium">Indiana</span>
             <span className="text-stone-400">vs</span>
             <span className="font-medium">Miami</span>
@@ -77,10 +88,10 @@ export default function App() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-stone-200 mb-8" />
+        <div className="h-px bg-stone-200 mb-6" />
 
         {/* Links */}
-        <div className="space-y-2">
+        <div className="space-y-1">
           {TICKET_SOURCES.map((source, index) => (
             <a
               key={source.name}
@@ -90,13 +101,10 @@ export default function App() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="group block"
-              style={{
-                animation: `slideUp 0.4s ease-out ${index * 0.05}s both`,
-              }}
             >
               <div 
                 className={`
-                  flex items-center justify-between py-4 px-5 rounded-xl
+                  flex items-center justify-between py-3.5 px-4 rounded-xl
                   transition-all duration-200 ease-out
                   ${hoveredIndex === index 
                     ? 'bg-stone-100' 
@@ -127,30 +135,19 @@ export default function App() {
         </div>
 
         {/* Tips */}
-        <div className="mt-10 pt-8 border-t border-stone-200">
+        <div className="mt-8 pt-6 border-t border-stone-200">
           <p className="text-stone-400 text-xs leading-relaxed text-center">
             Gametime typically has the lowest fees. Prices often drop 24-48 hours before kickoff.
           </p>
         </div>
 
         {/* Footer */}
-        <div className="mt-12 text-center">
+        <div className="mt-10 mb-8 text-center">
           <p className="text-stone-300 text-xs tracking-wide uppercase">
             Hard Rock Stadium · Miami Gardens
           </p>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(8px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 }
