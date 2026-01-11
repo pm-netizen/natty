@@ -61,6 +61,9 @@ export default function App() {
 
         {/* Header */}
         <div className="text-center mb-10">
+          <p className="text-xs uppercase tracking-widest text-red-700 mb-2 font-medium">
+            Ticket Tracker
+          </p>
           <h1 className="text-2xl md:text-3xl font-semibold tracking-tight text-stone-800 mb-3">
             National Championship
           </h1>
