@@ -29,17 +29,6 @@ const TICKET_SOURCES = [
   },
 ];
 
-// IU Trident Logo Component
-const IULogo = ({ className }) => (
-  <svg 
-    viewBox="0 0 270 341" 
-    className={className}
-    fill="currentColor"
-  >
-    <path d="M0 0h75v341H0zM195 0h75v341h-75zM75 246h120v95H75zM97.5 0h75v270h-75z"/>
-  </svg>
-);
-
 export default function App() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -66,31 +55,29 @@ export default function App() {
 
       <div className="relative z-10 max-w-xl mx-auto px-6 py-12 md:py-20">
         
-        {/* IU Logo */}
-        <div className="flex justify-center mb-8">
+        {/* Never Daunted Logo */}
+        <div className="flex justify-center mb-10">
           <div className="relative">
-            <div className="absolute inset-0 blur-3xl bg-red-900/20 rounded-full scale-150" />
-            <IULogo className="w-16 h-20 text-red-800/70 relative" />
+            <div className="absolute inset-0 blur-3xl bg-red-900/15 rounded-full scale-150" />
+            <img 
+              src="/never-daunted.png" 
+              alt="Never Daunted" 
+              className="w-64 md:w-80 relative opacity-90"
+            />
           </div>
         </div>
 
         {/* Header */}
         <div className="text-center mb-12">
-          <p 
-            className="text-red-700/80 text-xs tracking-[0.4em] uppercase mb-4"
-          >
-            College Football Playoff
-          </p>
-          
           <h1 
-            className="text-4xl md:text-5xl font-light tracking-tight mb-2"
+            className="text-3xl md:text-4xl font-light tracking-tight mb-4"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             National Championship
           </h1>
           
           <div 
-            className="flex items-center justify-center gap-4 my-6"
+            className="flex items-center justify-center gap-4 mb-6"
             style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             <span className="text-xl md:text-2xl font-light tracking-wide">Indiana</span>
@@ -99,7 +86,7 @@ export default function App() {
           </div>
 
           <div 
-            className="inline-flex items-center gap-6 text-neutral-500 text-sm mt-4"
+            className="inline-flex items-center gap-6 text-neutral-500 text-sm"
           >
             <span className="flex items-center gap-2">
               <Calendar className="w-3.5 h-3.5" strokeWidth={1.5} />
